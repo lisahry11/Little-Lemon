@@ -5,7 +5,7 @@ function Navigation() {
     return (
         <>
             <nav>
-               { /*<img src={logo} alt="little Lemon logo" />*/}
+                { /*<img src={logo} alt="little Lemon logo" />*/}
                 <ul>
                     <li>
                         <a href="/Home">Home</a>
