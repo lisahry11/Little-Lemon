@@ -1,13 +1,17 @@
 import React from 'react'
-//import logo from './images/logo.jpg'
+import logo from './images/logo.jpg'
+import './navigation.css'
+
 
 function Navigation() {
     return (
         <>
-            <nav>
-                { /*<img src={logo} alt="little Lemon logo" />*/}
-                <ul>
-                    <li>
+            <nav >
+                <ul className='navbar'>
+                    <li >
+                        <img src={logo} alt="little Lemon logo" />
+                    </li>
+                    <li >
                         <a href="/Home">Home</a>
                     </li>
                     <li>
