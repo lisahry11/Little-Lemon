@@ -1,0 +1,25 @@
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 100px;
+    background-color: #495E57;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.image-2 {
+width: 200px;
+}
+
+h2 {
+   margin-left: 50px;
+}
+
+p {
+    color: white;
+    margin-left: 50px;
+}
+

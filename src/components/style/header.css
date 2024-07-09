@@ -1,0 +1,62 @@
+.header {
+    display: block;
+    background-color: #495E57;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 100px;
+    padding-top: 50px ;
+    padding-bottom: 50px ;  
+    position: relative;
+    
+}
+
+img {
+    border-radius: 10px;
+    width: 100%;
+}
+
+
+.image-1 {
+    display: inline-block;
+    margin-left: 600px;
+    position: absolute ;
+    margin-right: 0;
+    top: 15px;
+    right: 100px;
+    width: 200px;
+}
+
+h1, h2{
+    display: block;
+    color: #F4CE14;
+    font-size: 1rem;
+    margin-left: 50px;
+}
+
+.button-1, .button-2 {   /*dont forget the comma lol*/
+    background: #F4CE14;
+    font-size: 1rem;
+    border-radius: 16px;
+    height: 30px;
+    width: 150px;
+    cursor: pointer;
+    border-radius: 16x;
+    display: inline-block;
+    text-align: center;
+    margin-left: 50px;
+}
+
+.button-2 {
+    justify-content: center; 
+}
+
+button:hover {
+    background: #f8efc4;
+    color: black;  
+}
+
+
+@media all and (max-width: 930px ) {
+    .header  {
+
+    }
+}
