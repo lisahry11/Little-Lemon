@@ -1,28 +1,28 @@
 .navbar {
     background-color: white;
-    padding: 10px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    list-style-type: none;
+     display: inline-flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 0;
+    
 }
 
 li {
-    text-decoration: none;
     color:black;
-    margin-right: 2rem;
+    list-style-type: none;
 }
 
 .navbar :first-child {
-    margin-right: auto;
-   margin-left: 10px;
+    
+    margin-left: 20px;
 }
         
 @media all and (max-width: 865px) {
     .navbar {
         display: inline-block;
         border: 1px solid black; 
-        padding-right: 30px;
+        padding-right: 20px;
+        padding-bottom: 10px;
         margin-left: 20px;
     }
     

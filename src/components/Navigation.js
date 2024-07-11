@@ -1,28 +1,33 @@
 import React from 'react'
 import logo from './images/logo.jpg'
 import './style/navigation.css'
+
 import { Link } from 'react-router-dom';
 
 
 function Navigation() {
     return (
-        <nav>
-            <ul className='navbar'>
-
-                <li> <Link><img src={logo} alt="Logo" /></Link></li>
-
+        <nav className='navbar'>
+               <span> <li >
+                    <img src={logo} alt="logo" />
+                </li></span> 
+                <span>
                 <li >
-                    <Link to="/Home" target="_blank">Home</Link> {/*code to bring down to header*/}
+                    <Link to="/" >Home</Link>
                 </li>
+                </span>
+                <span>
                 <li>
-                    <Link to="/about-us" target="_blank">about us</Link>   {/*code to bring down to about section*/}
+                    <Link to="/about" >about us</Link>
                 </li>
+                </span>
+                <span>
                 <li>
-                    <Link to="/Login" target="_blank">Login</Link>
+                    <Link to="/booking" >Book resrevation</Link>
                 </li>
-
-            </ul>
+            </span>
         </nav>
+
 
     );
 };

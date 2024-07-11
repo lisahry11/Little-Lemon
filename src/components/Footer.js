@@ -6,7 +6,7 @@ import twitter from "./images/twitter.png"
 import facebook from "./images/facebook.png"
 
 
-function Footer() {
+const Footer = () => {
     return (
         <footer>
             <ul className='container'>
