@@ -4,11 +4,11 @@ const BookingForm = ({ Date, Time, Amount, Occasion, handleClick, resetFunction,
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleClick(); // Handle form submission in parent component
+        handleClick(); // MUST CALL FUNCTION FROM PARENT COMPONENT INSIDE FUNCTION ON CHILD
     }
 
     const handleReset = () => {
-        resetFunction(); // Handle form reset in parent component
+        resetFunction(); // MUST CALL FUNCTION FROM PARENT COMPONENT INSIDE FUNCTION ON CHILD
     }
 
     return (

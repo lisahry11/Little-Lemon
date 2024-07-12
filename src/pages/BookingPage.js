@@ -20,7 +20,6 @@ const BookingPage = () =>  {
             setTime('6:00pm');
             setAmount('4');
             setOccasion(' ');
-    
             console.log('form reset')
         }
 
@@ -28,7 +27,7 @@ const BookingPage = () =>  {
         <>
             <Navigation />
             <h1>This is the booking page</h1>
-            <p style={ {color: 'black'} }>Please fill out the form and submit your responses</p>
+            <p style={ {color: 'black'} }>Please fill out the form and submit your responses</p>        {/*EXAMPLE OF INLINE STYLING*/}
             
             <BookingForm
                 date={Date}
@@ -37,7 +36,7 @@ const BookingPage = () =>  {
                 Occasion={Occasion}
                 handleClick={handleClick}
                 resetFunction={resetFunction}
-                setDate={setDate}
+                setDate={setDate}                  /*DO NOT FORGET TO ADD SET FOR PROPS THAT NEEDS TO BE PASSED TO CHILD AS WELL*/
                 setTime={setTime}
                 setAmount={setAmount}
                 setOccasion={setOccasion}
