@@ -1,37 +1,43 @@
 .container {
     display: flex;
     background-color: white;
-    padding: 10px;
     align-items: center;
     list-style-type: none;
-   
+    border-top: 1px solid #ccc;
+    width: 100%;
+    padding: 10px; 
 }
 
 .contact-info {
-    display: flex;
-    justify-content: space-between;
+    display: inline-block; 
+    
     margin-left: 20px;
-    padding: 10px 10px;
+    flex: 1; /* Allow it to grow and take available space */
 }
 
 .footer-logo {
-    display: flex;
-    margin-left: auto;
+    display: flex; /* Added display flex for alignment */
+    justify-content: center;
+    flex: 1; /* Allow it to grow and take available space */
 }
 
 .socials {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: auto;
+    display: flex; /* Changed to flex for better alignment */
+    justify-content: flex-end; /* Align items to the right */
+    margin: 0 15px;
+    margin-right: 50px;
+    align-items: center; /* Align items vertically to the center */
+    flex: 1; /* Allow it to grow and take available space */
 }
+
 
 
 @media all and (max-width: 770px) {
     .contact-info {
-        display: inline-block;
+        flex: column;
         border: 1px solid black; 
         margin-left: 20px;
+        padding: 10px;
     }
     
 }

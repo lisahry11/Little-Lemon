@@ -1,53 +1,69 @@
 import React from "react";
 
-const BookingForm = ({ Date, Time, Amount, Occasion, handleClick, resetFunction, setDate, setTime, setAmount, setOccasion }) => {
+const BookingForm = ({ date, times, amount, occasion, selectedTime, setSelectedTime,  handleClick, resetFunction, setDate, dispatch, setAmount, setOccasion }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleClick(); // MUST CALL FUNCTION FROM PARENT COMPONENT INSIDE FUNCTION ON CHILD
+        handleClick(e); // MUST CALL FUNCTION FROM PARENT COMPONENT INSIDE FUNCTION ON CHILD (DONT FORGET TO ADD THE EVENT OBJECT, e)
     }
 
     const handleReset = () => {
         resetFunction(); // MUST CALL FUNCTION FROM PARENT COMPONENT INSIDE FUNCTION ON CHILD
     }
 
+    const handleDateChange =(e) => {
+        const selectedDate = e.target.value;
+        setDate(selectedDate);
+        dispatch({ type: 'UPDATED_TIMES', date: selectedDate });
+
+    }
+
+    const handleTimeChange = (e) => {
+        const selectedTime = e.target.value;
+        setSelectedTime(selectedTime);
+        dispatch({ type: 'UPDATED_TIMES', time: selectedTime }); 
+    }
+
+    const formStyle = {
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginRight: 40,
+        gap: 40,
+       
+    }
+
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} style={formStyle}>
+                <heading>
+                    <h1>BOOK NOW!!</h1>
+                </heading>
                 <label htmlFor="res-date">*Choose Date:
-                    <select required type="date" value={Date} onChange={(e) => setDate(e.target.value)}>
-                        <option value='7/11/24'>7/11/24</option>
-                        <option value='7/12/24'>7/12/24</option>
-                        <option value='7/13/24'>7/13/24</option>
-                        <option value='7/14/24'>7/14/24</option>
-                        <option value='7/15/24'>7/15/24</option>
-                        <option value='7/16/24'>7/16/24</option>
-                        <option value='7/17/24'>7/17/24</option>
-                    </select>
+                    <input required type="date" value={date} onChange={handleDateChange}>
+                </input>
                 </label>
                 <br />
                 *Please note we only book reservation a week in advance
                 <label htmlFor="res-time">*Time:
-                    <select required id="time" value={Time} onChange={(e) => setTime(e.target.value)}>
-                        <option value='5:30'>5:30</option>
-                        <option value='6:00'>6:00</option>
-                        <option value='6:30'>6:30</option>
-                        <option value='7:00'>7:00</option>
-                        <option value='7:30'>7:30</option>
+                    <select id="time" value={times} onChange={handleTimeChange}>
+                        {times.map((t, index) => (
+                            <option key={index} value={t}> {t}</option>
+                        ))}
                     </select>
                 </label>
                 <label htmlFor="guest">*Number of guest:
-                    <input required type="number" min={1} max={13} value={Amount} onChange={(e) => setAmount(e.target.value)} />
+                    <input required type="number" min={1} max={13} value={amount} onChange={(e) => setAmount(e.target.value)} />
                 </label>
-                <label htmlFor="occation">
-                    <select optional id="occasion" value={Occasion} onChange={(e) => setOccasion(e.target.value)}> occasion:
+                <label htmlFor="occasion">
+                    <select  id="occasion" value={occasion} onChange={(e) => setOccasion(e.target.value)}> Occasion:
                         <option value='birthday'>Birthday</option>
                         <option value='engagement'>Engagement</option>
                         <option value='annivarsary'>Annivarsary</option>
                     </select>
                 </label>
                 <button type="submit" >Submit</button>
-                <button type="reset" onClick={handleReset}>reset</button>
+                <button type="reset" data-testid='reset-button' onClick={handleReset}>reset</button>
             </form>
         </>
     );

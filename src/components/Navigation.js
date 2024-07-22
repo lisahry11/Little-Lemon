@@ -7,25 +7,29 @@ import { Link } from 'react-router-dom';
 
 function Navigation() {
     return (
-        <nav className='navbar'>
-               <span> <li >
-                    <img src={logo} alt="logo" />
-                </li></span> 
-                <span>
+        <nav className='navbar-container'>
+            <span className='logo'>
                 <li >
-                    <Link to="/" >Home</Link>
-                </li>
+                    <img src={logo} alt="logo" />
+                </li></span>
+            <ul className='links'>
+                <span>
+                    <li >
+                        <Link to="/" >Home</Link>
+                    </li>
                 </span>
                 <span>
-                <li>
-                    <Link to="/about" >about us</Link>
-                </li>
+                    <li>
+                        <Link to="/about" >about us</Link>
+                    </li>
                 </span>
                 <span>
-                <li>
-                    <Link to="/booking" >Book resrevation</Link>
-                </li>
-            </span>
+                    <li>
+                        <Link to="/booking" >Book resrevation</Link>
+                    </li>
+
+                </span>
+            </ul>
         </nav>
 
 

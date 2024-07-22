@@ -8,23 +8,26 @@ import facebook from "./images/facebook.png"
 
 const Footer = () => {
     return (
-        <footer>
-            <ul className='container'>
-                <span className='contact-info'>
-                    <li><a href="contact">contact</a></li>
-                    <li><a href="address">address</a></li>
-                    <li><a href="email">email</a></li>
-                    <li><a href="phone-number">phone number</a></li>
-                </span>
+        <footer className='container'>
+          
+                <div className='contact-info'>
+                    <li>contact</li>
+                   
+                    <li>address</li>
+                    
+                    <li>email</li>
+                    
+                    <li>phone number</li>
+                </div>
                 <span className='footer-logo'>
                     <li><img src={logo} alt="little Lemon logo" ></img></li>
                 </span>
                 <span className='socials'>
                     <li><img src={instagram} alt="instagram" style={{ width: 25, height: 25 }}></img></li>
-                    <li><img src={twitter} alt="twitter" style={{ width: 25, height: 25 }}></img></li>
+                    <li><img src={twitter} alt="twitter" style={{ width: 30, height: 25 }}></img></li>
                     <li> <img src={facebook} alt="facebook" style={{ width: 25, height: 25 }}></img></li>
                 </span>
-            </ul>
+            
         </footer>
     );
 }
