@@ -1,46 +1,51 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 import BookingForm from "../components/BookingForm";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
+const initializeTimes = () => [];
 
-const initializeTimes =()=> []
-
-function updateTimes(date, action) {
+function updateTimes(state, action) {
     switch (action.type) {
         case 'UPDATED_TIMES':
-            const currentDate = new Date(action.date);
-            const dayOfTheWeek = currentDate.getDay();
-            return dayOfTheWeek === 0 || dayOfTheWeek === 6 ?
-                ['5:00', '5:30', '6:00', '6:30', '7:00', '7:30', '8:00', '8:30', '9:00', '9:30'] :
-                ['5:00', '5:30', '6:00', '6:30', '7:00', '7:30'];
-        
+            return action.times;    // Use the times from API response
         case 'RESET_TIMES':
             return initializeTimes();
-        
         default:
-            return date;
+            return state;
     }
 }
-
 
 function BookingPage() {
 
     const [date, setDate] = useState('');
     const [times, dispatch] = useReducer(updateTimes, initializeTimes());
-    const [selectedTime, setSelectedTime]=useState('')
+    const [selectedTime, setSelectedTime] = useState('')
     const [amount, setAmount] = useState('');
     const [occasion, setOccasion] = useState('');
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch('/bookingData.json');
+            const data = await response.json();
+
+            const dayOfWeek = new Date(date).toLocaleString('en-US', { weekday: 'long' }).toLowerCase();
+            const availableTimes = data[dayOfWeek] || [];
+            dispatch({ type: 'UPDATED_TIMES', times: availableTimes });
+        };
+
+        fetchData();
+    }, [date]);
+
 
 
     const handleClick = (e) => {
         e.preventDefault();
-        alert('Thank you for booking with us!');
-    };
+    }
 
     const resetFunction = () => {
         setDate('');
-        dispatch({ type: 'RESET_TIMES'});
+        dispatch({ type: 'RESET_TIMES' });
         setAmount('');
         setOccasion('');
         console.log('form reset');
@@ -52,19 +57,20 @@ function BookingPage() {
             <h1>This is the booking page</h1>
             <p style={{ color: 'black' }}>Please fill out the form and submit your responses</p>        {/*EXAMPLE OF INLINE STYLING*/}
 
-            <BookingForm
+            <BookingForm   /*ALL OF THESE ARE BEING PASSED TO CHILD*/
                 date={date}
                 times={times}
                 amount={amount}
                 occasion={occasion}
-                handleClick={handleClick}
+                handleClick ={handleClick}
                 resetFunction={resetFunction}
                 setDate={setDate} /*DO NOT FORGET TO ADD SET FOR PROPS THAT NEEDS TO BE PASSED TO CHILD AS WELL*/
                 dispatch={dispatch}
-                setSelectedTime = {setSelectedTime}
-                selectedTime ={selectedTime}
+                setSelectedTime={setSelectedTime}
+                selectedTime={selectedTime}
                 setAmount={setAmount}
                 setOccasion={setOccasion} />
+
             <Footer />
         </>
     );
