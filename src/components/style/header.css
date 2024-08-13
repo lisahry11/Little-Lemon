@@ -1,27 +1,24 @@
-.header {
-    display: block;
+.container-header {
+    display: grid;
     background-color: #495E57;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
     column-gap: 100px;
-    padding-top: 50px ;
-    padding-bottom: 50px ;  
-    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
     
 }
 
 img {
     border-radius: 10px;
     width: 100%;
+    align-self: left;
 }
 
 
 .image-1 {
     display: inline-block;
-    margin-left: 600px;
-    position: absolute ;
-    margin-right: 0;
-    top: 15px;
-    right: 100px;
     width: 200px;
 }
 

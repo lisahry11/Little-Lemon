@@ -4,7 +4,7 @@ import owners from './images/Mario-Adrian.jpg';
 
 function About() {
     return (
-        <section className='about'>
+        <section className='about-container'>
             <div>
             <h2>About us</h2>
             <p>We are a family owned Mediterian restaurant that serves a bunch of different recipes. </p>

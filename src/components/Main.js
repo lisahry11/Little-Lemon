@@ -7,12 +7,11 @@ import falafel from './images/falafel.jpg'
 function Main() {
   return (
     <>
-      <body className='container-2'>
-        <div>                               {/*div is making it into a block*/}
+      <div div className='container-2'>
+                                      {/*div is making it into a block*/}
           <h2>This weeks specials!</h2>
           <button className='button-2'>Order online</button>
-        </div>
-      </body>
+      </div>
       <main className='main'>
         <section className='boxed'>
           <img src={salad} alt='salad' />

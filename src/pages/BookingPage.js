@@ -25,7 +25,7 @@ function BookingPage() {
     const [occasion, setOccasion] = useState('');
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchAPI = async () => {
             const response = await fetch('/bookingData.json');
             const data = await response.json();
 
@@ -34,7 +34,7 @@ function BookingPage() {
             dispatch({ type: 'UPDATED_TIMES', times: availableTimes });
         };
 
-        fetchData();
+        fetchAPI();
     }, [date]);
 
 

@@ -15,17 +15,17 @@ function Navigation() {
             <ul className='links'>
                 <span>
                     <li >
-                        <Link to="/" >Home</Link>
+                        <Link to="/" aria-label='Go to home page'>Home</Link>
                     </li>
                 </span>
                 <span>
                     <li>
-                        <Link to="/about" >about us</Link>
+                        <Link to="/about" aria-label='Learn more about us'>about us</Link>
                     </li>
                 </span>
                 <span>
                     <li>
-                        <Link to="/booking" >Book resrevation</Link>
+                        <Link to="/booking" aria-label='Make a reservation'>Book resrevation</Link>
                     </li>
 
                 </span>

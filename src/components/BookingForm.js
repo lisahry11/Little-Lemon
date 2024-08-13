@@ -36,34 +36,34 @@ const BookingForm = ({ date, times, amount, occasion, selectedTime, setSelectedT
     return (
         <>
             <form onSubmit={handleSubmit} style={formStyle}>
-                <heading>
+                <header>
                     <h1>BOOK NOW!!</h1>
-                </heading>
+                </header>
                 <label htmlFor="res-date">*Choose Date:
-                    <input required type="date" value={date} onChange={handleDateChange}>
+                    <input required id="res-date" type="date" value={date} onChange={handleDateChange}>
                     </input>
                 </label>
                 <br />
                 *Please note we only book reservation a week in advance
                 <label htmlFor="res-time">*Time:
-                    <select id="time" value={selectedTime} onChange={handleTimeChange}>   {/*value needs to be selectedTime*/}
+                    <select required aria-required='true' id="res-time" value={selectedTime} onChange={handleTimeChange}>   {/*value needs to be selectedTime*/}
                         {times.map((t, index) => (
                             <option key={index} value={t}> {t}</option>
                         ))}
                     </select>
                 </label>
-                <label htmlFor="guest">*Number of guest:
-                    <input required type="number" min={1} max={13} value={amount} onChange={(e) => setAmount(e.target.value)} />
+                <label htmlFor="guest-number">*Number of guest:
+                    <input required id='guest-number'type="number" min={1} max={13} value={amount} onChange={(e) => setAmount(e.target.value)} />
                 </label>
                 <label htmlFor="occasion">
                     <select id="occasion" value={occasion} onChange={(e) => setOccasion(e.target.value)}> Occasion:
                         <option value='birthday'>Birthday</option>
                         <option value='engagement'>Engagement</option>
-                        <option value='annivarsary'>Annivarsary</option>
+                        <option value='anniversary'>Anniversary</option>
                     </select>
                 </label>
-                <button type="submit" >Submit</button>
-                <button type="reset" data-testid='reset-button' onClick={handleReset}>reset</button>
+                <button aria-label='submit the form' type="submit" >Submit</button>
+                <button type="reset" aria-label='reset the form' data-testid='reset-button' onClick={handleReset}>reset</button>
             </form>
         </>
     );

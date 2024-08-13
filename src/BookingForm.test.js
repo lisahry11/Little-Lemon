@@ -1,19 +1,24 @@
 import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 import BookingForm from './components/BookingForm.js';
+import {updateTimes} from './pages/BookingPage.js';
+
 
 const mockTimes = ["10:00 AM", "11:00 AM", "12:00 PM"];
 
 describe('bookingForm component testing', () =>{
 
-test('Renders the BookingForm heading', () => {
-    render(<BookingForm times={mockTimes}/>);
-    const headingElement = screen.getByText("BOOK NOW!!");
-    expect(headingElement).toBeInTheDocument();
-
-});
+    test('Renders the BookingForm heading', () => {
+        render(
+          <MemoryRouter>                                    {/*MUST ADD MEMORYROUTER*/}
+            <BookingForm times={mockTimes} />
+          </MemoryRouter>
+        );
+        const headingElement = screen.getByText("BOOK NOW!!");
+        expect(headingElement).toBeInTheDocument();
+      });
 
 describe('updateTimes function', () => {
-    // Test case for 'UPDATED_TIMES' action
     it('should update times for weekend', () => {
         const initialState = [];
         const action = { type: 'UPDATED_TIMES', date: '2024-07-21' }; // A Saturday

@@ -1,12 +1,14 @@
-.about {
+
+
+.about-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr auto;
     column-gap: 100px;
     background-color: #495E57;
     padding-top: 20px;
     padding-bottom: 20px;
-    align-items: center;
-    justify-content: center;
+    align-items: center;       /*center vertically */
+    justify-items: center;     /*center horizontally */
 
 }
 
